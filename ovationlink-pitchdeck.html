@@ -54,13 +54,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-web
 .deck{height:calc(100vh - 52px);overflow:hidden;position:relative;}
 .slide{
   position:absolute;inset:0;
-  display:flex;flex-direction:column;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .45s ease,transform .45s ease;
-  pointer-events:none;overflow-y:auto;
+  display:none;flex-direction:column;
+  overflow-y:auto;
 }
-.slide.active{opacity:1;transform:translateY(0);pointer-events:all;}
-.slide.exit{opacity:0;transform:translateY(-20px);}
+.slide.active{display:flex;pointer-events:all;}
+.slide.exit{display:none;}
 
 /* ── SLIDE LAYOUTS ── */
 .s-inner{
@@ -277,16 +275,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-web
 
 /* ── ROADMAP ── */
 .roadmap{display:flex;flex-direction:column;gap:0;margin-top:24px;}
-.rm-row{display:grid;grid-template-columns:120px 1fr;gap:0;}
+.rm-row{display:grid;grid-template-columns:100px 1fr;gap:0;}
 .rm-row+.rm-row .rm-label{border-top:1px solid var(--stroke);}
-.rm-label{padding:18px 18px 18px 0;border-right:2px solid var(--blue);position:relative;}
+.rm-label{padding:12px 14px 12px 0;border-right:2px solid var(--blue);position:relative;}
 .rm-label::after{content:'';position:absolute;right:-6px;top:22px;width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid var(--bg);}
 .rm-when{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);}
 .rm-phase{font-size:13px;font-weight:600;margin-top:4px;}
-.rm-content{padding:18px 0 18px 24px;border-top:1px solid var(--stroke);}
+.rm-content{padding:12px 0 12px 20px;border-top:1px solid var(--stroke);}
 .rm-row:first-child .rm-content{border-top:none;}
 .rm-items{display:flex;flex-direction:column;gap:5px;}
-.rm-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink);}
+.rm-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--ink);}
 .rm-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;}
 .rm-item span{color:var(--ink2);font-size:12px;}
 
@@ -827,7 +825,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-web
     <div class="slide-num">13</div>
     <div class="slide-label">Go-to-market</div>
     <h2 class="slide-title">Le séquençage précis<br>des <em>90 premiers jours.</em></h2>
-    <div class="roadmap" style="margin-top:24px;">
+    <div class="roadmap" style="margin-top:12px;">
       <div class="rm-row">
         <div class="rm-label"><div class="rm-when">M1–M3</div><div class="rm-phase">Construction</div></div>
         <div class="rm-content"><div class="rm-items">
@@ -1257,19 +1255,14 @@ function goTo(n){
   const prev=getSlide(current);
   const next=getSlide(n);
   prev.classList.remove('active');
-  prev.classList.add('exit');
-  setTimeout(()=>prev.classList.remove('exit'),450);
   next.classList.add('active');
+  next.scrollTop=0;
   current=n;
   document.getElementById('curSlide').textContent=n;
   document.querySelectorAll('.nav-dot').forEach((d,i)=>{
     d.classList.toggle('active',i===n-1);
   });
-  // Trigger reveals
-  setTimeout(()=>{
-    next.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
-  },100);
-  // Build charts on slide 12
+  next.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
   if(n===12)buildCharts();
 }
 
