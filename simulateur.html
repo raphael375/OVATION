@@ -124,6 +124,11 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
 }
 .seg-input:focus{border-color:var(--blue);}
 
+/* NOTE MATCH INBOUND */
+.match-note{background:var(--greenl);border:1px solid rgba(52,199,89,.25);border-radius:10px;padding:10px 12px;margin-bottom:12px;}
+.match-note-title{font-size:11px;font-weight:700;color:var(--green);margin-bottom:3px;}
+.match-note-text{font-size:11px;color:var(--t2);line-height:1.5;}
+
 /* ── RIGHT PANEL ── */
 .dashboard{padding:24px;overflow-y:auto;}
 
@@ -185,7 +190,6 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
 /* ANIMATED NUMBER */
 .anim-num{transition:all .4s ease;}
 
-/* WATERMARK CHANGED */
 @keyframes flash{0%{background:rgba(0,113,227,.15)}100%{background:transparent}}
 .changed{animation:flash .5s ease;}
 
@@ -225,33 +229,36 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
           <div class="ctrl-head-ico" style="background:var(--bluel);">💶</div>
-          <div><div class="ctrl-head-title">Tarifs abonnements</div><div class="ctrl-head-sub">Prix HT par segment</div></div>
+          <div><div class="ctrl-head-title">Tarifs abonnements</div><div class="ctrl-head-sub">Moy. pondérée par défaut : 702 € HT</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
       <div class="ctrl-body">
         <div class="seg-grid">
           <div class="seg-card">
-            <div class="seg-card-label" style="color:var(--green)">Segment 1</div>
+            <div class="seg-card-label" style="color:var(--green)">Segment 1 · Micro &amp; Jeune public</div>
             <div class="seg-inputs">
-              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo1" type="number" value="300" min="50" max="2000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
-              <div class="seg-input-row"><span class="seg-input-lbl">Match</span><input class="seg-input" id="p_m1" type="number" value="20" min="5" max="500" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo1" type="number" value="400" min="50" max="2000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Match proactif</span><input class="seg-input" id="p_m1" type="number" value="20" min="5" max="500" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
             </div>
           </div>
           <div class="seg-card">
-            <div class="seg-card-label" style="color:var(--blue)">Segment 2</div>
+            <div class="seg-card-label" style="color:var(--blue)">Segment 2 · Compagnies pro ★</div>
             <div class="seg-inputs">
-              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo2" type="number" value="900" min="100" max="5000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
-              <div class="seg-input-row"><span class="seg-input-lbl">Match</span><input class="seg-input" id="p_m2" type="number" value="50" min="10" max="500" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo2" type="number" value="950" min="100" max="5000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Match proactif</span><input class="seg-input" id="p_m2" type="number" value="50" min="10" max="500" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
             </div>
           </div>
           <div class="seg-card" style="grid-column:1/-1">
-            <div class="seg-card-label" style="color:var(--purple)">Segment 3</div>
+            <div class="seg-card-label" style="color:var(--purple)">Segment 3 · Grandes compagnies</div>
             <div class="seg-inputs" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo3" type="number" value="2000" min="500" max="10000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
-              <div class="seg-input-row"><span class="seg-input-lbl">Match</span><input class="seg-input" id="p_m3" type="number" value="120" min="20" max="1000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Abonnement</span><input class="seg-input" id="p_abo3" type="number" value="1950" min="500" max="10000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
+              <div class="seg-input-row"><span class="seg-input-lbl">Match proactif</span><input class="seg-input" id="p_m3" type="number" value="120" min="20" max="1000" oninput="recalc()"> <span style="font-size:10px;color:var(--t3)">€</span></div>
             </div>
           </div>
+        </div>
+        <div style="background:var(--bg2);border-radius:10px;padding:8px 12px;font-size:11px;color:var(--t3);">
+          💡 Moyenne pondérée calculée automatiquement selon le mix segments ci-dessous : <strong id="avgPrice" style="color:var(--blue);">702 €</strong>
         </div>
       </div>
     </div>
@@ -261,7 +268,7 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
           <div class="ctrl-head-ico" style="background:var(--purplel);">📊</div>
-          <div><div class="ctrl-head-title">Mix segments</div><div class="ctrl-head-sub">Répartition du stock de Spectacles Signés</div></div>
+          <div><div class="ctrl-head-title">Mix segments</div><div class="ctrl-head-sub">Répartition du stock de spectacles signés</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
@@ -289,43 +296,45 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
           <div class="ctrl-head-ico" style="background:var(--orangel);">📞</div>
-          <div><div class="ctrl-head-title">Inscription des Spectacles — Année 1</div><div class="ctrl-head-sub">Télévente Producteurs</div></div>
+          <div><div class="ctrl-head-title">Inscription des spectacles — Année 1</div><div class="ctrl-head-sub">Télévente Producteurs · 13 TV · 3 500 €/mois</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
       <div class="ctrl-body">
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Volume Spectacles</span><span class="sl-val orange" id="v_targets">8 000</span></div>
+          <div class="sl-top"><span class="sl-label">Volume spectacles contactés</span><span class="sl-val orange" id="v_targets">8 000</span></div>
           <input type="range" class="orange" id="s_targets" min="1000" max="15000" step="500" value="8000" oninput="recalc()">
           <div class="sl-hints"><span class="sl-hint">1 000</span><span class="sl-hint">15 000</span></div>
         </div>
-        
-        
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Taux de Transformation (Contrats Signés)</span><span class="sl-val" id="v_conv">20%</span></div>
+          <div class="sl-top"><span class="sl-label">Taux de transformation (contrats signés)</span><span class="sl-val" id="v_conv">20%</span></div>
           <input type="range" id="s_conv" min="15" max="85" value="20" oninput="recalc()">
           <div class="sl-hints"><span class="sl-hint">15%</span><span class="sl-hint">85%</span></div>
         </div>
       </div>
     </div>
 
-    <!-- MATCHS -->
+    <!-- ACCÈS MATCH -->
     <div class="ctrl-section open">
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
-          <div class="ctrl-head-ico" style="background:var(--teall,#E5F6FE);">🔗</div>
-          <div><div class="ctrl-head-title">Accès Match</div><div class="ctrl-head-sub">CA Moyen Match Unitaire 50 € (Excel)</div></div>
+          <div class="ctrl-head-ico" style="background:#E5F6FE;">🔗</div>
+          <div><div class="ctrl-head-title">Accès Match proactif</div><div class="ctrl-head-sub">CA additionnel sur action pro-active producteur</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
       <div class="ctrl-body">
+        <div class="match-note">
+          <div class="match-note-title">✓ Contacts inbound = inclus dans l'abonnement</div>
+          <div class="match-note-text">Quand c'est la salle qui prend contact, c'est gratuit pour le producteur. L'Accès Match ci-dessous concerne uniquement les actions <strong>pro-actives</strong> du producteur qui cible lui-même des salles.</div>
+        </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Nombre de Matchs moyen par Spectacle</span><span class="sl-val" id="v_mpa">10</span></div>
+          <div class="sl-top"><span class="sl-label">Matchs proactifs moyen / spectacle / an</span><span class="sl-val" id="v_mpa">10</span></div>
           <input type="range" id="s_mpa" min="2" max="20" value="10" oninput="recalc()">
           <div class="sl-hints"><span class="sl-hint">2</span><span class="sl-hint">20</span></div>
         </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">% Spectacles activant l'Accès Match</span><span class="sl-val green" id="v_mconv">50%</span></div>
+          <div class="sl-top"><span class="sl-label">% spectacles activant l'Accès Match proactif</span><span class="sl-val green" id="v_mconv">50%</span></div>
           <input type="range" class="green" id="s_mconv" min="10" max="90" value="50" oninput="recalc()">
           <div class="sl-hints"><span class="sl-hint">10%</span><span class="sl-hint">90%</span></div>
         </div>
@@ -337,30 +346,30 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
           <div class="ctrl-head-ico" style="background:var(--greenl);">📈</div>
-          <div><div class="ctrl-head-title">Croissance A2 → A5</div><div class="ctrl-head-sub">Nouvelles pièces & renouvellements</div></div>
+          <div><div class="ctrl-head-title">Croissance A2 → A5</div><div class="ctrl-head-sub">Nouveaux spectacles &amp; renouvellements</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
       <div class="ctrl-body">
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Spectacles Signés New Biz / an (A2)</span><span class="sl-val green" id="v_new2">800</span></div>
-          <input type="range" class="green" id="s_new2" min="100" max="2000" step="50" value="800" oninput="recalc()">
+          <div class="sl-top"><span class="sl-label">Spectacles signés new biz / an (A2)</span><span class="sl-val green" id="v_new2">1 200</span></div>
+          <input type="range" class="green" id="s_new2" min="100" max="2000" step="50" value="1200" oninput="recalc()">
         </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Croissance New Biz annuelle (A3–A5)</span><span class="sl-val green" id="v_newgr">15%</span></div>
+          <div class="sl-top"><span class="sl-label">Croissance new biz annuelle (A3–A5)</span><span class="sl-val green" id="v_newgr">15%</span></div>
           <input type="range" class="green" id="s_newgr" min="0" max="50" value="15" oninput="recalc()">
           <div class="sl-hints"><span class="sl-hint">0%</span><span class="sl-hint">+50%/an</span></div>
         </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Extension Concerts &amp; Conférences (A2)</span><span class="sl-val" id="v_ext2">200</span></div>
+          <div class="sl-top"><span class="sl-label">Extension Conférence &amp; CE + Concert (Phase 2)</span><span class="sl-val" id="v_ext2">200</span></div>
           <input type="range" id="s_ext2" min="0" max="800" step="50" value="200" oninput="recalc()">
         </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Taux de Renouvellement A2</span><span class="sl-val" id="v_ren2">75%</span></div>
+          <div class="sl-top"><span class="sl-label">Taux de renouvellement A2</span><span class="sl-val" id="v_ren2">75%</span></div>
           <input type="range" id="s_ren2" min="40" max="95" value="75" oninput="recalc()">
         </div>
         <div class="slider-row">
-          <div class="sl-top"><span class="sl-label">Taux de Renouvellement A3+</span><span class="sl-val green" id="v_ren3">82%</span></div>
+          <div class="sl-top"><span class="sl-label">Taux de renouvellement A3+</span><span class="sl-val green" id="v_ren3">82%</span></div>
           <input type="range" class="green" id="s_ren3" min="50" max="97" value="82" oninput="recalc()">
         </div>
       </div>
@@ -371,16 +380,17 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
       <div class="ctrl-head" onclick="toggle(this)">
         <div class="ctrl-head-left">
           <div class="ctrl-head-ico" style="background:var(--redl);">💸</div>
-          <div><div class="ctrl-head-title">Charges fixes</div><div class="ctrl-head-sub">Masse salariale & frais</div></div>
+          <div><div class="ctrl-head-title">Charges fixes</div><div class="ctrl-head-sub">Masse salariale &amp; frais</div></div>
         </div>
         <span class="ctrl-chevron">⌄</span>
       </div>
       <div class="ctrl-body">
-        <div class="num-row"><div class="nr-label">Total Salaires Chargés annuels (fondateurs + superviseur)</div><div class="nr-input-wrap"><input class="nr-input" id="c_sal" type="number" value="396000" step="12000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
+        <div class="num-row"><div class="nr-label">Total salaires chargés annuels — 3 fondateurs + superviseur</div><div class="nr-input-wrap"><input class="nr-input" id="c_sal" type="number" value="400000" step="12000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
+        <div style="font-size:11px;color:var(--t3);margin-bottom:12px;margin-top:-8px;">Fabrice 12K + David 8K + Raphaël 8K + Superviseur 5K = 33K/mois · 400K/an</div>
         <div class="num-row"><div class="nr-label">Développement plateforme (A0)</div><div class="nr-input-wrap"><input class="nr-input" id="c_dev0" type="number" value="150000" step="10000" oninput="recalc()"><span class="nr-unit">€</span></div></div>
         <div class="num-row"><div class="nr-label">Développement / maintenance (A1+)</div><div class="nr-input-wrap"><input class="nr-input" id="c_dev1" type="number" value="60000" step="5000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
-        <div class="num-row"><div class="nr-label">Communication Web Directeurs de Salles + Producteurs (A0)</div><div class="nr-input-wrap"><input class="nr-input" id="c_com0" type="number" value="60000" step="5000" oninput="recalc()"><span class="nr-unit">€</span></div></div>
-        <div class="num-row"><div class="nr-label">Communication Web Directeurs de Salles + Producteurs (A1+)</div><div class="nr-input-wrap"><input class="nr-input" id="c_com1" type="number" value="60000" step="5000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
+        <div class="num-row"><div class="nr-label">Communication web salles + producteurs (A0)</div><div class="nr-input-wrap"><input class="nr-input" id="c_com0" type="number" value="60000" step="5000" oninput="recalc()"><span class="nr-unit">€</span></div></div>
+        <div class="num-row"><div class="nr-label">Communication web salles + producteurs (A1+)</div><div class="nr-input-wrap"><input class="nr-input" id="c_com1" type="number" value="60000" step="5000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
         <div class="num-row"><div class="nr-label">Télévente Producteurs + Phoning Programmateurs (A0)</div><div class="nr-input-wrap"><input class="nr-input" id="c_ph0" type="number" value="384000" step="10000" oninput="recalc()"><span class="nr-unit">€</span></div></div>
         <div class="num-row"><div class="nr-label">Télévente Producteurs + Phoning Programmateurs (A1+)</div><div class="nr-input-wrap"><input class="nr-input" id="c_ph1" type="number" value="143000" step="5000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
         <div class="num-row"><div class="nr-label">Frais généraux annuels (bureaux, honoraires, RP…)</div><div class="nr-input-wrap"><input class="nr-input" id="c_fix" type="number" value="55200" step="2000" oninput="recalc()"><span class="nr-unit">€ / an</span></div></div>
@@ -439,16 +449,16 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
     <div class="charts-grid">
       <div class="chart-card full">
         <div class="cc-title">CA total vs Charges — 5 ans</div>
-        <div class="cc-sub">Abonnements + Matchs · Seuil de rentabilité auto-détecté</div>
+        <div class="cc-sub">Abonnements + Matchs proactifs · Seuil de rentabilité auto-détecté · Base 702 € moy. pondérée</div>
         <canvas id="mainChart" height="140"></canvas>
       </div>
       <div class="chart-card">
-        <div class="cc-title">Mix revenus — Abonnements vs Matchs</div>
-        <div class="cc-sub">CA Abonnements vs CA Accès Match</div>
+        <div class="cc-title">Mix revenus — Abonnements vs Matchs proactifs</div>
+        <div class="cc-sub">CA Abonnements (inclut inbound gratuit) vs CA Accès Match proactif</div>
         <canvas id="mixChart" height="220"></canvas>
       </div>
       <div class="chart-card">
-        <div class="cc-title">Stock de Spectacles Signés</div>
+        <div class="cc-title">Stock de spectacles signés</div>
         <div class="cc-sub">New Biz + Renouvellements</div>
         <canvas id="stockChart" height="220"></canvas>
       </div>
@@ -472,14 +482,14 @@ input[type=range].purple::-webkit-slider-thumb{background:var(--purple);}
 <script>
 /* ═══════════════════ DEFAULTS ═══════════════════ */
 const DEFAULTS = {
-  p_abo1:300,p_abo2:900,p_abo3:2000,
-  p_m1:20,p_m2:50,p_m3:120,
-  s_s1:50,s_s2:30,
-  s_targets:8000,s_conv:20,
-  s_mpa:10,s_mconv:50,
-  s_new2:800,s_newgr:15,s_ext2:200,s_ren2:75,s_ren3:82,
-  c_sal:396000,c_dev0:150000,c_dev1:60000,
-  c_com0:60000,c_com1:60000,c_ph0:384000,c_ph1:143000,c_fix:55200,c_sup:60000
+  p_abo1:400, p_abo2:950, p_abo3:1950,
+  p_m1:20, p_m2:50, p_m3:120,
+  s_s1:50, s_s2:30,
+  s_targets:8000, s_conv:20,
+  s_mpa:10, s_mconv:50,
+  s_new2:1200, s_newgr:15, s_ext2:200, s_ren2:75, s_ren3:82,
+  c_sal:400000, c_dev0:150000, c_dev1:60000,
+  c_com0:60000, c_com1:60000, c_ph0:384000, c_ph1:143000, c_fix:55200, c_sup:60000
 };
 
 /* ═══════════════════ HELPERS ═══════════════════ */
@@ -505,41 +515,37 @@ function syncMix(changed){
 
 /* ═══════════════════ CORE CALC ═══════════════════ */
 function calc(){
-  // --- Params ---
   const abo=[0,v('p_abo1'),v('p_abo2'),v('p_abo3')];
   const mp=[0,v('p_m1'),v('p_m2'),v('p_m3')];
   const s1=v('s_s1')/100, s2=v('s_s2')/100, s3=Math.max(0,1-s1-s2);
   const smix=[0,s1,s2,s3];
-  const targets=v('s_targets'), reach=1, signup=1, conv=v('s_conv')/100;
+
+  // Moyenne pondérée affichée
+  const avgP=Math.round(abo[1]*s1+abo[2]*s2+abo[3]*s3);
+  const avgEl=document.getElementById('avgPrice');
+  if(avgEl)avgEl.textContent=fmtK(avgP);
+
+  const targets=v('s_targets'), conv=v('s_conv')/100;
   const mpa=v('s_mpa'), mconv=v('s_mconv')/100;
   const new2=v('s_new2'), newgr=v('s_newgr')/100, ext2=v('s_ext2');
   const ren2=v('s_ren2')/100, ren3=v('s_ren3')/100;
   const c_sal=v('c_sal'),c_dev0=v('c_dev0'),c_dev1=v('c_dev1');
   const c_com0=v('c_com0'),c_com1=v('c_com1'),c_ph0=v('c_ph0'),c_ph1=v('c_ph1'),c_fix=v('c_fix'),c_sup=v('c_sup');
 
-  // --- A1 stock ---
-  const a1_new = Math.round(targets * reach * signup * conv);
-
-  // --- Compute stock per year ---
-  // yr = [0..5]
+  const a1_new = Math.round(targets * conv);
   const stocks=[0,a1_new,0,0,0,0];
   const newPieces=[0,a1_new,new2+ext2,0,0,0];
-  const extPieces=[0,0,ext2,0,0,0];
   const renewals=[0,0,0,0,0,0];
 
   for(let y=2;y<=5;y++){
     const ren=y===2?ren2:ren3;
-    const prev_stock=stocks[y-1];
-    const renew=Math.round(prev_stock*ren);
+    const renew=Math.round(stocks[y-1]*ren);
     renewals[y]=renew;
-    let np;
-    if(y===2)np=new2+ext2;
-    else np=Math.round(newPieces[y-1]*(1+newgr));
+    let np=y===2?new2+ext2:Math.round(newPieces[y-1]*(1+newgr));
     newPieces[y]=np;
     stocks[y]=renew+np;
   }
 
-  // --- Revenue per year ---
   const ca_abo=[],ca_match=[],ca_total=[];
   for(let y=0;y<=5;y++){
     if(y===0){ca_abo.push(0);ca_match.push(0);ca_total.push(0);continue;}
@@ -555,17 +561,15 @@ function calc(){
     ca_total.push(Math.round(abo_rev+match_rev));
   }
 
-  // --- Charges per year ---
   const charges=[];
   const acq_decay=[0,c_ph1*0.8,c_ph1*0.6,c_ph1*0.45,c_ph1*0.3,c_ph1*0.2];
   const com_decay=[0,c_com1,c_com1*0.8,c_com1*0.65,c_com1*0.55,c_com1*0.5];
   const dev_yr=[c_dev0,c_dev1,c_dev1*0.85,c_dev1*0.7,c_dev1*0.7,c_dev1*0.7];
   const sal_yr=[c_sal,c_sal,c_sal,c_sal*1.1,c_sal*1.1,c_sal*1.19];
-  const sup_yr=[c_sup,c_sup,c_sup*0.5,0,0,0]; // superviseur full A0-A1, mi-temps A2
+  const sup_yr=[c_sup,c_sup,c_sup*0.5,0,0,0];
   const hire_yr=[0,0,42000,84000+48000,84000+48000+114000,84000+48000+114000];
-  const fix_yr=[c_fix,c_fix,c_fix*1.18,c_fix*1.18,c_fix*1.18,c_fix*1.18]; // A0=55.2k, A1=55.2k, A2+=65k
-  const files_yr=[65000,30000,20000,15000,10000,10000]; // A0: 30k qual fichier prod + 5k salles + 30k com salles; A1+: décroissant
-  const phoning_yr=[c_ph0,c_ph1,...acq_decay.slice(2)];
+  const fix_yr=[c_fix,c_fix,c_fix*1.18,c_fix*1.18,c_fix*1.18,c_fix*1.18];
+  const files_yr=[65000,30000,20000,15000,10000,10000];
 
   for(let y=0;y<=5;y++){
     const total=dev_yr[y]+sal_yr[y]+sup_yr[y]+hire_yr[y]+fix_yr[y]+files_yr[y]+com_decay[y]+(y===0?c_ph0:acq_decay[y]);
@@ -573,17 +577,14 @@ function calc(){
   }
 
   const results=ca_total.map((c,i)=>c-charges[i]);
-
-  // --- BE year ---
   let beYear=-1;
   for(let y=1;y<=5;y++){if(results[y]>=0){beYear=y;break;}}
 
-  return {stocks,newPieces,renewals,ca_abo,ca_match,ca_total,charges,results,beYear,smix,abo,mp,mpa,mconv};
+  return {stocks,newPieces,renewals,ca_abo,ca_match,ca_total,charges,results,beYear,smix,abo,mp,mpa,mconv,avgP};
 }
 
 /* ═══════════════════ RENDER ═══════════════════ */
 function recalc(){
-  // Update all slider labels
   ['s_targets','s_conv','s_mpa','s_mconv','s_new2','s_newgr','s_ext2','s_ren2','s_ren3'].forEach(id=>{
     const el=document.getElementById(id);
     if(!el)return;
@@ -596,32 +597,24 @@ function recalc(){
 
   const D=calc();
 
-  // ── KPIs ──
   const beLabel=D.beYear>0?'Année '+D.beYear:'> A5';
-  setKpi('kpi_ca1',fmtK(D.ca_total[1]),'Stock: '+fmtN(D.stocks[1])+' pièces',D.results[1]>=0?'green':D.ca_total[1]>200000?'':'red');
-  setKpi('kpi_ca2',fmtK(D.ca_total[2]),'Matchs: '+pct(Math.round(D.ca_match[2]/D.ca_total[2]*100||0)),D.results[2]>=0?'green':'');
+  setKpi('kpi_ca1',fmtK(D.ca_total[1]),'Stock: '+fmtN(D.stocks[1])+' spectacles · moy. '+fmtK(D.avgP),D.results[1]>=0?'green':D.ca_total[1]>200000?'':'red');
+  setKpi('kpi_ca2',fmtK(D.ca_total[2]),'Matchs: '+pct(Math.round(D.ca_match[2]/D.ca_total[2]*100||0))+'  du CA',D.results[2]>=0?'green':'');
   setKpi('kpi_ca5',fmtK(D.ca_total[5]),'Marge: '+pct(Math.round((D.results[5]/D.ca_total[5])*100||0)),D.results[5]>0?'green':'');
   setKpi('kpi_be',beLabel,D.beYear>0?'Résultat: '+fmtK(D.results[D.beYear]):'Déficit A5: '+fmtK(D.results[5]),D.beYear>0?'green':'red');
 
-  // Header BE
   const hbe=document.getElementById('beHeader');
   hbe.textContent=D.beYear>0?'BE : A'+D.beYear:'BE : > A5';
   hbe.className='hdr-be '+(D.beYear>0?'be-ok':'be-no');
 
-  // ── Year tabs: mark BE year ──
   document.querySelectorAll('.ytab').forEach(t=>{
     const y=parseInt(t.dataset.y);
     t.classList.remove('be-year');
     if(y===D.beYear)t.classList.add('be-year');
   });
 
-  // ── Year detail KPIs ──
   renderYearKpis(D,selectedYear);
-
-  // ── Charts ──
   renderCharts(D);
-
-  // ── P&L Table ──
   renderPL(D);
 }
 
@@ -629,7 +622,7 @@ function setKpi(id,val,sub,cls){
   const card=document.getElementById(id+'_card');
   const num=document.getElementById(id);
   const subEl=document.getElementById(id+'_sub');
-  if(card){card.className='kpi-card '+(cls||'');}
+  if(card)card.className='kpi-card '+(cls||'');
   if(num)num.textContent=val;
   if(subEl)subEl.textContent=sub||'';
 }
@@ -637,9 +630,9 @@ function setKpi(id,val,sub,cls){
 function renderYearKpis(D,y){
   const container=document.getElementById('yearKpis');
   const items=[
-    {label:'CA total',val:fmtK(D.ca_total[y]),sub:'dont matchs '+fmtK(D.ca_match[y]),cls:D.ca_total[y]>0?'':''},
+    {label:'CA total',val:fmtK(D.ca_total[y]),sub:'dont matchs proactifs '+fmtK(D.ca_match[y]),cls:''},
     {label:'CA Abonnements',val:fmtK(D.ca_abo[y]),sub:'',cls:''},
-    {label:'CA Accès Match',val:fmtK(D.ca_match[y]),sub:D.ca_total[y]>0?pct(Math.round(D.ca_match[y]/D.ca_total[y]*100))+'% du CA':'—',cls:''},
+    {label:'CA Accès Match proactif',val:fmtK(D.ca_match[y]),sub:D.ca_total[y]>0?pct(Math.round(D.ca_match[y]/D.ca_total[y]*100))+'% du CA':'—',cls:''},
     {label:'Charges',val:fmtK(D.charges[y]),sub:'',cls:''},
     {label:'Résultat net',val:fmtK(D.results[y]),sub:D.ca_total[y]>0?'Marge: '+pct(Math.round(D.results[y]/D.ca_total[y]*100))+'%':'—',cls:D.results[y]>=0?'green':'red'},
   ];
@@ -664,7 +657,6 @@ function selectYear(el){
 function renderCharts(D){
   const labels=['A0','A1','A2','A3','A4','A5'];
 
-  // Main chart
   if(mainChart)mainChart.destroy();
   const ctx1=document.getElementById('mainChart').getContext('2d');
   const gCA=ctx1.createLinearGradient(0,0,0,250);gCA.addColorStop(0,'rgba(0,113,227,.15)');gCA.addColorStop(1,'rgba(0,113,227,0)');
@@ -674,19 +666,17 @@ function renderCharts(D){
     {label:'Charges',data:D.charges,borderColor:'#FF3B30',borderWidth:2,pointBackgroundColor:'#FF3B30',pointRadius:3,fill:true,backgroundColor:gCh,tension:.4}
   ]},options:{animation:{duration:300},plugins:{legend:{labels:{color:'#6E6E73',font:{size:11},boxWidth:10}},tooltip:{backgroundColor:'rgba(255,255,255,.97)',titleColor:'#0071E3',bodyColor:'#1D1D1F',borderColor:'#D2D2D7',borderWidth:1,padding:10,cornerRadius:8,callbacks:{label:c=>c.dataset.label+' : '+fmtK(c.parsed.y)}}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{color:'#AEAEB2',font:{size:10}}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{color:'#AEAEB2',font:{size:10},callback:v=>fmtK(v)}}}}});
 
-  // Mix chart
   if(mixChart)mixChart.destroy();
   const ctx2=document.getElementById('mixChart').getContext('2d');
   mixChart=new Chart(ctx2,{type:'bar',data:{labels:['A1','A2','A3','A4','A5'],datasets:[
     {label:'CA Abonnements',data:D.ca_abo.slice(1),backgroundColor:'rgba(0,113,227,.7)',borderRadius:5,borderWidth:0},
-    {label:'CA Accès Match',data:D.ca_match.slice(1),backgroundColor:'rgba(52,199,89,.7)',borderRadius:5,borderWidth:0}
+    {label:'CA Accès Match proactif',data:D.ca_match.slice(1),backgroundColor:'rgba(52,199,89,.7)',borderRadius:5,borderWidth:0}
   ]},options:{animation:{duration:300},plugins:{legend:{labels:{color:'#6E6E73',font:{size:11},boxWidth:10}},tooltip:{backgroundColor:'rgba(255,255,255,.97)',titleColor:'#1D1D1F',bodyColor:'#6E6E73',borderColor:'#D2D2D7',borderWidth:1,callbacks:{label:c=>c.dataset.label+' : '+fmtK(c.raw)}}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:'#AEAEB2',font:{size:10}}},y:{stacked:true,grid:{color:'rgba(0,0,0,.04)'},ticks:{color:'#AEAEB2',font:{size:10},callback:v=>fmtK(v)}}}}});
 
-  // Stock chart
   if(stockChart)stockChart.destroy();
   const ctx3=document.getElementById('stockChart').getContext('2d');
   stockChart=new Chart(ctx3,{type:'bar',data:{labels:['A1','A2','A3','A4','A5'],datasets:[
-    {label:'Renouvellements (Taux Renouv.)',data:D.renewals.slice(1),backgroundColor:'rgba(0,113,227,.4)',borderRadius:0,borderWidth:0},
+    {label:'Renouvellements',data:D.renewals.slice(1),backgroundColor:'rgba(0,113,227,.4)',borderRadius:0,borderWidth:0},
     {label:'New Biz',data:D.newPieces.slice(1),backgroundColor:'rgba(0,113,227,.8)',borderRadius:[5,5,0,0],borderWidth:0}
   ]},options:{animation:{duration:300},plugins:{legend:{labels:{color:'#6E6E73',font:{size:11},boxWidth:10}},tooltip:{backgroundColor:'rgba(255,255,255,.97)',titleColor:'#1D1D1F',bodyColor:'#6E6E73',borderColor:'#D2D2D7',borderWidth:1}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:'#AEAEB2',font:{size:10}}},y:{stacked:true,grid:{color:'rgba(0,0,0,.04)'},ticks:{color:'#AEAEB2',font:{size:10}}}}}});
 }
@@ -710,19 +700,19 @@ function renderPL(D){
   const rows=[];
 
   rows.push({type:'sec',label:'STOCK & REVENUS'});
-  rows.push({label:'Spectacles Signés (stock fin année)',vals:D.stocks.map((s,i)=>i===0?'—':fmtN(s))});
-  rows.push({label:'CA Abonnements (CA Unitaire Moyen 800 €)',vals:D.ca_abo.map((v,i)=>i===0?'—':fmtK(v)),pos:true});
-  rows.push({label:'CA Accès Match (50 € / match × 10 matchs)',vals:D.ca_match.map((v,i)=>i===0?'—':fmtK(v)),pos:true});
+  rows.push({label:'Spectacles signés (stock fin année)',vals:D.stocks.map((s,i)=>i===0?'—':fmtN(s))});
+  rows.push({label:'CA Abonnements (moy. pondérée '+fmtK(D.avgP)+')',vals:D.ca_abo.map((v,i)=>i===0?'—':fmtK(v)),pos:true});
+  rows.push({label:'CA Accès Match proactif (action pro-active producteur)',vals:D.ca_match.map((v,i)=>i===0?'—':fmtK(v)),pos:true});
   rows.push({type:'tot',label:'CA TOTAL',vals:D.ca_total.map((v,i)=>i===0?'0 €':fmtK(v)),pos:true});
 
   rows.push({type:'sec',label:'CHARGES'});
-  rows.push({label:'Coût Plateforme (Front &amp; Back)',vals:[fmtK(v('c_dev0')),...[1,2,3,4,5].map(y=>fmtK(y===1?v('c_dev1'):y<=3?v('c_dev1')*0.85:v('c_dev1')*0.7))]});
-  rows.push({label:'Total Salaires Chargés',vals:[fmtK(v('c_sal')),...[1,2,3,4,5].map(y=>fmtK(y<=2?v('c_sal'):y<=4?v('c_sal')*1.1:v('c_sal')*1.19))]});
+  rows.push({label:'Coût plateforme (Front &amp; Back)',vals:[fmtK(v('c_dev0')),...[1,2,3,4,5].map(y=>fmtK(y===1?v('c_dev1'):y<=3?v('c_dev1')*0.85:v('c_dev1')*0.7))]});
+  rows.push({label:'Total salaires chargés (400 K€/an)',vals:[fmtK(v('c_sal')),...[1,2,3,4,5].map(y=>fmtK(y<=2?v('c_sal'):y<=4?v('c_sal')*1.1:v('c_sal')*1.19))]});
   rows.push({label:'Recrutements additionnels',vals:['—','—',fmtK(42000),fmtK(132000),fmtK(246000),fmtK(246000)]});
   rows.push({label:'Communication digitale',vals:[fmtK(v('c_com0')),fmtK(v('c_com1')),...[2,3,4,5].map(y=>fmtK(v('c_com1')*(y===2?.8:y===3?.65:y===4?.55:.5)))]});
   rows.push({label:'Télévente Producteurs + Phoning Programmateurs',vals:[fmtK(v('c_ph0')),fmtK(v('c_ph1')),...[2,3,4,5].map(y=>fmtK(v('c_ph1')*(y===2?.6:y===3?.45:y===4?.3:.2)))]});
-  rows.push({label:'Acquisition & Qualification Fichiers',vals:['65 K€','30 K€','20 K€','15 K€','10 K€','10 K€']});
-  rows.push({label:'Total Frais Généraux',vals:[0,1,2,3,4,5].map(y=>fmtK(v('c_fix')*(y===0?1:y===1?1.2:y===2?1.5:1.7)))});
+  rows.push({label:'Acquisition &amp; Qualification fichiers',vals:['65 K€','30 K€','20 K€','15 K€','10 K€','10 K€']});
+  rows.push({label:'Total frais généraux',vals:[0,1,2,3,4,5].map(y=>fmtK(v('c_fix')*(y===0?1:y===1?1.2:y===2?1.5:1.7)))});
   rows.push({type:'tot',label:'TOTAL CHARGES',vals:D.charges.map(c=>fmtK(c)),neg:true});
 
   rows.push({type:'sec',label:'RÉSULTAT'});
